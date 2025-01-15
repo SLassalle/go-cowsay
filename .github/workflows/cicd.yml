@@ -60,6 +60,11 @@
 
     push-docker:
       name: push in dockerhub registry
+      strategy:
+        matrix:
+          arch:
+            - amd64
+            - arm64
       needs: build
       runs-on: ubuntu-latest
       steps:
@@ -70,7 +75,6 @@
 
         - run: |
             chmod u+x cowsay
-            ./cowsay
 
         - run: |
             pwd
