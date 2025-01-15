@@ -36,6 +36,8 @@
       runs-on: self-hosted
       steps:
         run: ls
+
+        
     push-docker:
       name: push in dockerhub registry
       needs: build
