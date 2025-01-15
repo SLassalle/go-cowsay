@@ -100,6 +100,5 @@
           with:
             context: .
             push: true
-            tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest-${{ matrix.arch }}
-            labels: ${{ steps.meta.outputs.labels }}
+            tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             platforms: linux/${{ matrix.arch }}
