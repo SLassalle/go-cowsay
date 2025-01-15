@@ -63,7 +63,8 @@
         
         - uses: actions/checkout@v4
           with:
-            path: Dockerfile
+            sparse-checkout: |
+              Dockerfile
           
         - run: ls -alh
 
