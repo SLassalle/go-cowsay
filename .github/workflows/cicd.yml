@@ -23,3 +23,22 @@
             go mod tidy
             go run .
             go build -o bin/cowsay .
+
+        - name: Upload static files as artifact
+          id: deployment
+          uses: actions/upload-artifact@v4
+          with:
+            path: bin/
+            name: cowsaybin
+  deploy:
+    name: deploy on my self hosted
+    needs: build
+    runs-on: self-hosted
+    steps:
+      run: ls
+  push-docker:
+    name: push in dockerhub registry
+    needs: build
+    runs-on : ubuntu-latest
+    steps:
+      - run: ls
