@@ -41,6 +41,7 @@
             path: .
             name: cowsaybin
         - run: |
+            chmod u+x cowsay
             ./cowsay
 
 
@@ -57,5 +58,11 @@
             name: cowsaybin
 
         - run: |
-            chmod u+xcowsay
+            chmod u+x cowsay
             ./cowsay
+        
+        - uses: actions/checkout@v4
+          with:
+            path: Dockerfile
+          
+        - run: ls -alh
