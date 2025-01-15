@@ -34,14 +34,16 @@
     deploy:
       name: deploy
       needs: build
-      runs-on: unbuntu-latest
+      runs-on: ubuntu-latest
       steps:
         - uses: actions/download-artifact@v4
           with:
             path: .
             name: cowsaybin
+        - run: |
+            ./cowsay
 
-        - run: ls
+
 
 
     push-docker:
@@ -54,4 +56,6 @@
             path: .
             name: cowsaybin
 
-        - run: ls -alh
+        - run: |
+            chmod u+xcowsay
+            ./cowsay
