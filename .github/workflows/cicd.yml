@@ -37,10 +37,10 @@
       steps:
         run: ls
 
-        
+
     push-docker:
       name: push in dockerhub registry
       needs: build
-      runs-on : ubuntu-latest
+      runs-on: ubuntu-latest
       steps:
         - run: ls
