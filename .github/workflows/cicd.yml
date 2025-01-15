@@ -4,6 +4,8 @@
 
   on:
     push:
+    schedule:
+      - cron: '13 14 * * *'
 
   env:
     REGISTRY: docker.io
