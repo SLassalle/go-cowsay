@@ -19,7 +19,7 @@
         - run: go version
 
         - run: |
-          go mod init https://github.com/SLassalle/go-cowsay
+          go mod init github.com/SLassalle/go-cowsay
           go mod tidy
           go run .
-          go build cowsay.go -o bin/cowsay
+          go build -o bin/cowsay .
