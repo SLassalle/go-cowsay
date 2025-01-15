@@ -32,7 +32,7 @@
             name: cowsaybin
 
     deploy:
-      name: deploy on my self hosted
+      name: deploy
       needs: build
       runs-on: unbuntu-latest
       steps:
@@ -40,7 +40,7 @@
           with:
             path: .
             name: cowsaybin
-            
+
         - run: ls
 
 
