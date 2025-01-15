@@ -34,8 +34,13 @@
     deploy:
       name: deploy on my self hosted
       needs: build
-      runs-on: self-hosted
+      runs-on: unbuntu-latest
       steps:
+        - uses: actions/download-artifact@v4
+          with:
+            path: .
+            name: cowsaybin
+            
         - run: ls
 
 
@@ -44,4 +49,9 @@
       needs: build
       runs-on: ubuntu-latest
       steps:
-        - run: ls
+        - uses: actions/download-artifact@v4
+          with:
+            path: .
+            name: cowsaybin
+
+        - run: ls -alh
