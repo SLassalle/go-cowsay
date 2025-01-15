@@ -45,18 +45,18 @@
             path: bin/
             name: cowsaybin-${{ matrix.arch }}
 
-    deploy:
-      name: deploy
-      needs: build
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/download-artifact@v4
-          with:
-            path: .
-            name: cowsaybin
-        - run: |
-            chmod u+x cowsay
-            ./cowsay
+    # deploy:
+    #   name: deploy
+    #   needs: build
+    #   runs-on: ubuntu-latest
+    #   steps:
+    #     - uses: actions/download-artifact@v4
+    #       with:
+    #         path: .
+    #         name: cowsaybin
+    #     - run: |
+    #         chmod u+x cowsay
+    #         ./cowsay
 
     push-docker:
       name: push in dockerhub registry
@@ -66,7 +66,7 @@
         - uses: actions/download-artifact@v4
           with:
             path: .
-            name: cowsaybin-amd64
+            name: cowsaybin-${{ matrix.arch }}
 
         - run: |
             chmod u+x cowsay
@@ -96,3 +96,4 @@
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}
+            platforms: linux/${{ matrix.arch }}
