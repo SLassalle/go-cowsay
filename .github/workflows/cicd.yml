@@ -15,9 +15,10 @@
         - uses: actions/setup-go@v5
           with:
             go-version: '>=1.23'
+
         - run: go version
 
-        -run: |
+        - run: |
           go mod init https://github.com/SLassalle/go-cowsay
           go mod tidy
           go run .
