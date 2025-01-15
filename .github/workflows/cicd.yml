@@ -12,6 +12,12 @@
   jobs:
     build:
       name: build go code into binary
+      strategy:
+        matrix:
+          arch:
+            - amd64
+            - arm64
+
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
@@ -27,6 +33,8 @@
             go mod tidy
             go run .
             go build -o bin/cowsay .
+          env:
+            GOARCH: ${{ matrix.arch }}
         
         - run: |
             cp Dockerfile bin/
@@ -36,7 +44,7 @@
           uses: actions/upload-artifact@v4
           with:
             path: bin/
-            name: cowsaybin
+            name: cowsaybin-${{ matrix.arch }}
 
     deploy:
       name: deploy
