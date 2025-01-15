@@ -30,12 +30,13 @@
           with:
             path: bin/
             name: cowsaybin
+
     deploy:
       name: deploy on my self hosted
       needs: build
       runs-on: self-hosted
       steps:
-        run: ls
+        - run: ls
 
 
     push-docker:
