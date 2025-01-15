@@ -9,7 +9,7 @@
     build:
       name: build go code into binary
       runs-on: ubuntu-latest
-      jobs:
+      steps:
         - uses: actions/checkout@v4
 
         - uses: actions/setup-go@v5
